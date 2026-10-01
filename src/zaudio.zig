@@ -2506,7 +2506,7 @@ pub const Sound = opaque {
         out_handle: ?*?*Sound,
     ) Result;
 
-    fn createCopy(engine: *Engine, existing_sound: *Sound, flags: Flags, sgroup: ?*SoundGroup) Error!*Sound {
+    pub fn createCopy(engine: *Engine, existing_sound: *Sound, flags: Flags, sgroup: ?*SoundGroup) Error!*Sound {
         var handle: ?*Sound = null;
         try maybeError(zaudioSoundCreateCopy(engine, existing_sound, flags, sgroup, &handle));
         return handle.?;
